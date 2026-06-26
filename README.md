@@ -2,6 +2,8 @@
 
 A real-time multiplayer Uno game built with Node.js, Express, Socket.IO, and a Vanilla JS + Vite frontend.
 
+🎮 **Live Demo:** [https://uno-game-blond.vercel.app/](https://uno-game-blond.vercel.app/)
+
 ## Deployment Guide
 
 This project is separated into a `client` (frontend) and `server` (backend). Because the backend relies on persistent WebSocket connections to keep game states in memory, it cannot be fully hosted on Vercel's serverless functions. 
