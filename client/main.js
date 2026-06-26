@@ -89,9 +89,26 @@ function createCardElement(card, isPlayable = false) {
 }
 
 // Connect
+const connectionStatus = document.getElementById('connection-status');
+
 socket.on('connect', () => {
     myId = socket.id;
     console.log('Connected', myId);
+    connectionStatus.style.color = '#55aa55';
+    connectionStatus.textContent = 'Connected to Server!';
+    btnCreate.disabled = false;
+    btnJoin.disabled = false;
+    setTimeout(() => {
+        connectionStatus.style.display = 'none';
+    }, 2000);
+});
+
+socket.on('disconnect', () => {
+    connectionStatus.style.display = 'block';
+    connectionStatus.style.color = '#ff5555';
+    connectionStatus.textContent = 'Disconnected from Server.';
+    btnCreate.disabled = true;
+    btnJoin.disabled = true;
 });
 
 // Lobby Actions

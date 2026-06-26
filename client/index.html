@@ -20,11 +20,12 @@
           </div>
           
           <div class="btn-group">
-            <button id="btn-create" class="btn primary">Create Game</button>
+            <button id="btn-create" class="btn primary" disabled>Create Game</button>
             <div class="divider"><span>OR</span></div>
             <input type="text" id="join-room-id" placeholder="Room Code" maxlength="6">
-            <button id="btn-join" class="btn secondary">Join Game</button>
+            <button id="btn-join" class="btn secondary" disabled>Join Game</button>
           </div>
+          <div id="connection-status" style="color: #ffaa00; margin-top: 1rem; font-size: 0.9rem;">Connecting to server...</div>
           <div id="lobby-error" class="error-msg"></div>
         </div>
       </div>
