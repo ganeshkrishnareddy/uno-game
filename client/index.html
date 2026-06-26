@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uno Multiplayer</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Lobby Screen -->
+      <div id="lobby-screen" class="screen">
+        <div class="glass-panel">
+          <h1>UNO</h1>
+          <p class="subtitle">Multiplayer & AI</p>
+          
+          <div class="form-group">
+            <input type="text" id="player-name" placeholder="Enter your name" maxlength="15">
+          </div>
+          
+          <div class="btn-group">
+            <button id="btn-create" class="btn primary">Create Game</button>
+            <div class="divider"><span>OR</span></div>
+            <input type="text" id="join-room-id" placeholder="Room Code" maxlength="6">
+            <button id="btn-join" class="btn secondary">Join Game</button>
+          </div>
+          <div id="lobby-error" class="error-msg"></div>
+        </div>
+      </div>
+
+      <!-- Room Screen (Waiting for players) -->
+      <div id="room-screen" class="screen hidden">
+        <div class="glass-panel">
+          <h2>Room Code: <span id="room-code-display" class="highlight"></span></h2>
+          <div class="players-list" id="waiting-players-list">
+            <!-- Player items injected here -->
+          </div>
+          <div class="btn-group row">
+            <button id="btn-add-ai" class="btn outline">Add AI Bot</button>
+            <button id="btn-start" class="btn primary">Start Game</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="game-screen" class="screen hidden">
+        <div class="game-board">
+          
+          <!-- Top area for opponent(s) -->
+          <div class="opponents-area" id="opponents-container">
+            <!-- Opponents injected here -->
+          </div>
+          
+          <!-- Center area for discard pile and deck -->
+          <div class="center-area">
+            <div class="deck-container">
+              <div class="card card-back" id="deck" title="Draw Card">
+                <div class="card-inner">UNO</div>
+              </div>
+            </div>
+            
+            <div class="discard-container">
+              <div id="discard-pile">
+                <!-- Top card injected here -->
+              </div>
+            </div>
+
+            <!-- Direction Indicator -->
+            <div id="direction-indicator" class="direction-indicator">
+              <span class="arrow">↻</span>
+            </div>
+          </div>
+          
+          <!-- Bottom area for player's hand -->
+          <div class="player-area">
+            <div class="player-info">
+              <span id="my-name">Player</span>
+              <span id="turn-indicator" class="badge">Your Turn</span>
+            </div>
+            <div class="hand" id="my-hand">
+              <!-- Cards injected here -->
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Color Picker Modal (Wild cards) -->
+        <div id="color-picker" class="modal hidden">
+          <div class="modal-content glass-panel">
+            <h3>Choose a Color</h3>
+            <div class="colors-grid">
+              <div class="color-btn Red" data-color="Red"></div>
+              <div class="color-btn Green" data-color="Green"></div>
+              <div class="color-btn Blue" data-color="Blue"></div>
+              <div class="color-btn Yellow" data-color="Yellow"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Winner Modal -->
+        <div id="winner-modal" class="modal hidden">
+          <div class="modal-content glass-panel">
+            <h2 id="winner-name">Player Wins!</h2>
+            <button id="btn-lobby-return" class="btn primary">Return to Lobby</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
